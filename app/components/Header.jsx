@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 
 const links = [
@@ -27,7 +28,7 @@ export default function Header() {
       <ul className="flex w-[30%] justify-evenly">
         {links.map(({ id, name, path }) => (
           <li key={id}>
-            <a href={path}>{name}</a>
+            <Link href={path}>{name}</Link>
           </li>
         ))}
       </ul>
