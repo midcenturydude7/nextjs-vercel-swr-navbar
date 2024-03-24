@@ -1,7 +1,10 @@
+/* eslint-disable react-hooks/rules-of-hooks */
+
 "use client";
+import React from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import React from "react";
+import { motion } from "framer-motion";
 import { cn } from "../../lib/utils";
 
 export default function Header() {
@@ -26,13 +29,15 @@ export default function Header() {
   const pathname = usePathname();
 
   return (
-    <div className="flex h-14 w-full items-center justify-between border-b-[1px] border-b-zinc-500 bg-zinc-900 pl-[20%] pr-[20%]">
+    <div className="flex h-[70px] w-full items-center justify-between border-b-[1px] border-b-zinc-500 bg-zinc-900 pl-[20%] pr-[20%]">
       <ul>
         <li>
           <Link
             className={cn(
-              "relative rounded-md px-4 py-2 font-medium transition-all duration-500 ease-out hover:bg-slate-200",
-              pathname === "/" ? "cursor-default bg-slate-300" : "",
+              "relative rounded-md px-4 py-2 font-medium transition-all duration-500 ease-out hover:bg-zinc-300 hover:text-zinc-500",
+              pathname === "/"
+                ? "cursor-default bg-zinc-300 text-zinc-500 hover:bg-zinc-300"
+                : "",
             )}
             href="/"
           >
@@ -45,8 +50,10 @@ export default function Header() {
           <li key={id}>
             <Link
               className={cn(
-                "relative rounded-md px-4 py-2 font-medium transition-all duration-500 ease-out hover:bg-slate-200",
-                pathname === path ? "cursor-default bg-slate-300" : "",
+                "relative rounded-md px-4 py-2 font-medium transition-all duration-500 ease-out hover:bg-zinc-300 hover:text-zinc-500",
+                pathname === path
+                  ? "cursor-default bg-zinc-300 text-zinc-500 hover:bg-zinc-300"
+                  : "",
               )}
               href={path}
             >
